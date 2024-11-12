@@ -1,0 +1,43 @@
+﻿@model TestAPP.Models.Employee
+
+<h1>Update Employee</h1>
+
+
+<form asp-controller="Home" asp-action="Update" method="post" enctype="multipart/form-data">
+
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <td>Employee ID :</td>
+            <td>
+                <input name="Id" value="@Model.Id" readonly />
+            </td>
+        </tr>
+        <tr>
+            <td> Name :</td>
+            <td><input name="Name" value="@Model.Name" /></td>
+        </tr>
+        <tr>
+            <td>Email :</td>
+            <td><input name="Email" value="@Model.Email" /></td>
+        </tr>
+        <tr>
+            <td>Last Name :</td>
+            <td><input name="Department" value="@Model.Department" /></td>
+        </tr>
+        <tr>
+
+            <td>Upload updated photo :</td>
+            <td>
+                <input type="file" name="FilePath"  />
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button type="submit">Save</button>
+            </td>
+        </tr>
+    </table>
+
+</form>

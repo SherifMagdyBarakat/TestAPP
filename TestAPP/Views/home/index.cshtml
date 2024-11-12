@@ -1,0 +1,32 @@
+﻿@model IEnumerable<TestAPP.Models.Employee>
+
+<input type="button" value="Add new Employee"
+       onclick="location.href='@Url.Action("Insert","Home")'" />
+<br />
+<br />
+
+<h1>List of Employees</h1>
+
+@{
+    var rows = int.Parse(ViewData["Rows"].ToString());
+    var columns = int.Parse(ViewData["Columns"].ToString());
+}
+<table>
+
+
+    @for (int rowIndex = 0; rowIndex < rows; rowIndex++)
+    {
+
+        <tr>
+            @for (int columnIndex = 0; columnIndex < columns; columnIndex++)
+            {
+                int cardIndex = columnIndex + (rowIndex * columns);
+                if (cardIndex >= @Model.Count())
+                    break;
+                <td>@await Html.PartialAsync("empcard", @Model.ElementAt(cardIndex)) </td>
+
+            }
+        </tr>
+    }
+
+</table>

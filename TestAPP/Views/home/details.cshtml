@@ -1,0 +1,33 @@
+﻿@model TestAPP.Models.Employee
+<form asp-controller="Home" asp-action="Details" method="post">
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <td>Employee ID :</td>
+            <td>
+                <input name="Id" value="@Model.Id" readonly />
+            </td>
+            <td>
+               
+                <img src="data:image;base64,@System.Convert.ToBase64String(Model.photo)" width="100" height="100" />
+
+            </td>
+        </tr>
+        <tr>
+            <td> Name :</td>
+            <td><input name="Name" value="@Model.Name" readonly /></td>
+        </tr>
+        <tr>
+            <td>Email :</td>
+            <td><input name="Email" value="@Model.Email" readonly /></td>
+        </tr>
+        <tr>
+            <td>Last Name :</td>
+            <td><input name="Department" value="@Model.Department" readonly /></td>
+        </tr>
+        <tr>
+            <button type="submit">Back</button>
+        </tr>
+    </table>
+
+</form>

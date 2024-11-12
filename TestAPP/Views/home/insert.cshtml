@@ -1,0 +1,44 @@
+﻿@using TestAPP.Models
+<form asp-controller="Home" asp-action="Insert" method="post" enctype="multipart/form-data">
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <td> Name :</td>
+            <td><input name="Name" Required /></td>
+
+        </tr>
+        <tr>
+            <td>Email :</td>
+            <td><input name="Email" /></td>
+        </tr>
+        <tr>
+            <td>Department :</td>
+            <td>
+                <select name="Department">
+                    @for (int i = 0; i < Enum.GetNames(typeof(Dept)).Length; i++)
+                    {
+                        <option value=@Dept.GetName(typeof(Dept), i)>@Dept.GetName(typeof(Dept), i)</option>
+                    }
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+
+            <td>Upload your photo :</td>
+            <td>
+                <input type="file" name="FilePath" />
+
+            </td>
+
+        </tr>
+
+
+        <tr>
+            <td colspan="2">
+                <button type="submit" asp-page-handler="Submit">submit</button>
+            </td>
+        </tr>
+    </table>
+</form>
+
